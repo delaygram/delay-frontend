@@ -8,11 +8,15 @@ import { AuthenticationService } from '../authentication';
 })
 export class LoginGuard implements CanActivate {
 
-  constructor(private _authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private readonly _authenticationService: AuthenticationService, private router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (!this._authenticationService.getUser().token) {
+      this.router.navigate(['login']);
+      return false;
+    }
     return true;
   }
 

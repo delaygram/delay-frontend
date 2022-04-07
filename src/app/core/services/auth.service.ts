@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-import { User } from 'src/app/shared/models/user';
+import { User } from 'src/app/shared/models';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AuthService {
     return this.http.post<User>(`${environment.authenticationApi}/login`, { username, password });
   }
 
-  regusterUser(username: string, email: string, password: string): Observable<void> {
+  registerUser(username: string, email: string, password: string): Observable<void> {
     return this.http.post<void>(`${environment.authenticationApi}/register`, { username, email, password });
   }
 
