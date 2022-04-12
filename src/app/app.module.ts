@@ -1,3 +1,4 @@
+import { NavbarComponent } from './modules/main';
 import { FeedComponent } from './modules/feed/feed.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent, ConfirmComponent, LoginComponent } from './modules/authentication';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { RegisterComponent, ConfirmComponent, LoginComponent } from './modules/a
     RegisterComponent,
     ConfirmComponent,
     FeedComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { RegisterComponent, ConfirmComponent, LoginComponent } from './modules/a
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
