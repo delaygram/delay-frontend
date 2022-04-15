@@ -1,0 +1,15 @@
+.active-tab {
+  color: white !important;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(152, 152, 152);
+}
+
+.dropdown-item {
+  color: white;
+}
+
+#dropdown-btn {
+  list-style-type: none;
+}

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="navbar-header">
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav mr-auto">
+          <span class="mr-3 grey"><i class="bi bi-camera2"></i> Delaygram</span>
+      </ul>
+      <ul *ngIf="user.token" class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" routerLink="feed" routerLinkActive="active-tab"><i
+                  class="bi bi-person-badge"></i> Feed</a>
+      </ul>
+  </div>
+
+  <span *ngIf="user.token" class="mr-3 grey"><i class="bi bi-person-circle"></i> {{user.username}}</span>
+  <ul *ngIf="user.token" class="navbar-nav mr-auto">
+      <a class="nav-item nav-link" (click)="logout()"><i class="bi bi-box-arrow-left"></i> Logout</a>
+  </ul>
+</nav>

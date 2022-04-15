@@ -1,0 +1,10 @@
+{
+  "/api/authentication/*": {
+    "target": "https://staging.delaygram.nl/authentication",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/authentication": ""
+    },
+    "changeOrigin": true
+  }
+}
