@@ -1,17 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+let http: HttpClient;
+let httpTestingController: HttpTestingController;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ],
       declarations: [
         AppComponent
       ],
     }).compileComponents();
+    http = TestBed.inject(HttpClient)
+    httpTestingController = TestBed.inject(HttpTestingController)
   });
 
   it('should create the app', () => {
@@ -23,13 +31,6 @@ describe('AppComponent', () => {
   it(`should have as title 'delay-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('delay-frontend');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('delay-frontend app is running!');
+    expect(app.title).toEqual('Delaygram');
   });
 });

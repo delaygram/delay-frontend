@@ -1,0 +1,37 @@
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+      <h4 class="card-header">Confirm account</h4>
+      <div class="card-body">
+          <form [formGroup]="confirmForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" formControlName="username" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                      <div *ngIf="f.username.errors.required">Username is required</div>
+                      <div *ngIf="f.username.errors.minlength">Username must contain atleast 4 characters</div>
+                      <div *ngIf="f.username.errors.maxlength">Username can only be a maximum of 15 characters</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="code">Confirmation code</label>
+                  <input type="text" formControlName="code" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.code.errors }" />
+                  <div *ngIf="submitted && f.code.errors" class="invalid-feedback">
+                      <div *ngIf="f.code.errors.required">Confirmation code is required</div>
+                      <div *ngIf="f.code.errors.minlength">Confirmation code exists out of 6 characters</div>
+                      <div *ngIf="f.code.errors.maxlength">Confirmation code exists out of 6 characters</div>
+                      <div *ngIf="f.code.errors.pattern">Confirmation code exists out of numbers only</div>
+                  </div>
+              </div>
+              <button [disabled]="loading" class="btn btn-primary">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Confirm
+              </button>
+              <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+          </form>
+          <div class="text-center mt-2"><span class="text-muted">Already confirmed your account? </span> <a
+                  routerLink='/login'>Login now</a></div>
+      </div>
+  </div>
+</div>
