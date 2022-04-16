@@ -44,8 +44,8 @@ jobs:
       - name: Build
         run: ng build --configuration staging
 
-      - name: Lint
-        run: npm run lint
+      - name: ESLint
+        run: npx eslint src/*
 
       - name: Test
         run: ng test -- --watch=false --code-coverage
