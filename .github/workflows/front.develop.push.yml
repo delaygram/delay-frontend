@@ -73,10 +73,10 @@ jobs:
           git tag -a build-${{ github.run_number }} -m "Tag for github build-${{ github.run_number }}"
           git push origin build-${{ github.run_number }}
 
-      - name: Deploy to staging
+      - name: Deploy to staging bucket
         run: aws s3 sync dist/delay-frontend s3://delaygram-staging/
 
-      - name: Run invalidation
+      - name: Run invalidation on staging CloudFront
         run: aws cloudfront create-invalidation --distribution-id E2VCGQ0ORDECMP --paths "/*"
 
       - name: Tag release
