@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { console.log('OnInit'); }
 
   get f() { return this.loginForm.controls; }
 

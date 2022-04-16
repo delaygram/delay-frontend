@@ -23,8 +23,7 @@ export class ConfirmComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { console.log('OnInit'); }
 
   get f() { return this.confirmForm.controls; }
 
