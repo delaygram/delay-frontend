@@ -45,7 +45,7 @@ jobs:
         run: ng build --configuration staging
 
       - name: ESLint
-        run: ls -ltrh src
+        run: npx eslint src/*
 
       - name: Test
         run: ng test -- --watch=false --code-coverage
