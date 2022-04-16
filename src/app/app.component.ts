@@ -13,6 +13,6 @@ export class AppComponent implements OnInit {
   constructor(private readonly _authenticationService: AuthenticationService) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { console.log('OnInit'); }
 
 }
