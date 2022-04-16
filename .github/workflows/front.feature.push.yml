@@ -45,12 +45,10 @@ jobs:
         run: ng build --configuration staging
 
       - name: ESLint
-        uses: sibiraj-s/action-eslint@v2
+        uses: reviewdog/action-eslint@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          eslint-args: '--ignore-path=.gitignore --quiet'
-          extensions: 'js,jsx,ts,tsx'
-          annotations: true
+          reporter: github-check
+          eslint_flags: 'src/app/'
 
       - name: Test
         run: ng test -- --watch=false --code-coverage
