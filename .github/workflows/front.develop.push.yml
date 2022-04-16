@@ -77,7 +77,7 @@ jobs:
         run: aws s3 sync dist/delay-frontend s3://delaygram-staging/
 
       - name: Run invalidation
-        run: aws cloudfront create-invalidation --distribution-id E2VCGQ0ORDECMP --paths \"/*\"
+        run: aws cloudfront create-invalidation --distribution-id E2VCGQ0ORDECMP --paths "/*"
 
       - name: Tag release
         run: |
