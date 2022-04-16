@@ -1,0 +1,6 @@
+<testExecutions version="1">
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should have as title 'delay-frontend'" duration="55"/>
+    <testCase name="AppComponent should create the app" duration="8"/>
+  </file>
+</testExecutions>
