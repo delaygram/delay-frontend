@@ -1,4 +1,5 @@
-/***************************************************************************************************
+// eslint-disable-next-line max-len
+/** *************************************************************************************************
  * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
  */
 import '@angular/localize/init';
@@ -18,7 +19,7 @@ import '@angular/localize/init';
  * Learn more in https://angular.io/guide/browser-support
  */
 
-/***************************************************************************************************
+/** *************************************************************************************************
  * BROWSER POLYFILLS
  */
 
