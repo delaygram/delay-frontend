@@ -45,7 +45,12 @@ jobs:
         run: ng build --configuration staging
 
       - name: ESLint
-        run: npx eslint src/app/*
+        uses: sibiraj-s/action-eslint@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          eslint-args: '--ignore-path=.gitignore --quiet'
+          extensions: 'js,jsx,ts,tsx'
+          annotations: true
 
       - name: Test
         run: ng test -- --watch=false --code-coverage
