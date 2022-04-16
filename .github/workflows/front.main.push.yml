@@ -1,0 +1,68 @@
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Install angular CLI
+        run: npm i -g @angular/cli
+
+      - name: Build
+        run: ng build --configuration prod
+
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Setup Git
+        run: |
+          git config --local user.email ${{ secrets.EMAIL }}
+          git config --local user.name ${{ github.actor }}
+
+      - name: Deploy to production bucket
+        run: aws s3 sync dist/delay-frontend s3://delaygram-prod/
+
+      - name: Run invalidation on production CloudFront
+        run: aws cloudfront create-invalidation --distribution-id E1UYS7U2IXL3JN --paths "/*"
+
+      - name: Tag production
+        run: |
+          git tag -a production -m "Tag for github production"
+          git push origin production
