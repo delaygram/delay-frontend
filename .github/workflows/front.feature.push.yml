@@ -44,11 +44,8 @@ jobs:
       - name: Build
         run: ng build --configuration staging
 
-      - name: ESLint
-        uses: reviewdog/action-eslint@v1
-        with:
-          reporter: github-check
-          eslint_flags: 'src/app/*'
+      - name: Lint
+        run: ng lint
 
       - name: Test
         run: ng test -- --watch=false --code-coverage
