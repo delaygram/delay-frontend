@@ -39,7 +39,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build -- --staging
+        run: ng build --configuration staging
 
       - name: Lint
         run: npm run lint
