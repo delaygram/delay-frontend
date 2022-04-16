@@ -48,7 +48,7 @@ jobs:
         run: ng lint
 
       - name: Test
-        run: ng test -- --watch=false --code-coverage
+        run: ng test -- --browsers=ChromeHeadless --watch=false --code-coverage
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
