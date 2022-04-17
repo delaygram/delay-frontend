@@ -1,6 +1,6 @@
 import { AuthenticationService } from './../../../core/authentication/authentication.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/shared/models'
+import { User } from 'src/app/shared/models/user'
 
 @Component({
   selector: 'app-navbar',

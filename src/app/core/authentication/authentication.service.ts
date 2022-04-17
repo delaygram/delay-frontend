@@ -3,7 +3,7 @@ import { AuthService } from '../services';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { User } from 'src/app/shared/models';
+import { User } from 'src/app/shared/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -55,7 +55,7 @@ export class AuthenticationService {
 
   public logout(): void {
     localStorage.removeItem('user');
-    this.userSubject.next(new User());
+    this.userSubject.next({access_token: '', username: ''});
 
     this.router.navigate(['login']);
   }
