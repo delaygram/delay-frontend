@@ -9,14 +9,14 @@
       <ul class="navbar-nav mr-auto">
           <span class="mr-3 grey"><i class="bi bi-camera2"></i> Delaygram</span>
       </ul>
-      <ul *ngIf="user.token" class="navbar-nav mr-auto">
+      <ul *ngIf="user.access_token" class="navbar-nav mr-auto">
           <a class="nav-item nav-link" routerLink="feed" routerLinkActive="active-tab"><i
                   class="bi bi-person-badge"></i> Feed</a>
       </ul>
   </div>
 
-  <span *ngIf="user.token" class="mr-3 grey"><i class="bi bi-person-circle"></i> {{user.username}}</span>
-  <ul *ngIf="user.token" class="navbar-nav mr-auto">
+  <span *ngIf="user.access_token" class="mr-3 grey"><i class="bi bi-person-circle"></i> {{user.username}}</span>
+  <ul *ngIf="user.access_token" class="navbar-nav mr-auto">
       <a class="nav-item nav-link" (click)="logout()"><i class="bi bi-box-arrow-left"></i> Logout</a>
   </ul>
 </nav>
