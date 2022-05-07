@@ -4,6 +4,8 @@
 
 export const environment = {
   authenticationApi: 'http://localhost:4200/api/authentication',
+  postApi: 'http://localhost:4200/api/post',
+  imageEndpoint: 'http://localhost:4200/images',
   production: false
 };
 

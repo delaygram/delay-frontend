@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent, ConfirmComponent, LoginComponent } from './modules/authentication';
 import { CommonModule } from '@angular/common';
+import { NewPostComponent } from './modules/new-post/new-post.component';
+import { PostsComponent } from './modules/posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CommonModule } from '@angular/common';
     RegisterComponent,
     ConfirmComponent,
     FeedComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewPostComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,

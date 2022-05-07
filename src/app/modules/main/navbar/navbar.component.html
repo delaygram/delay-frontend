@@ -14,9 +14,11 @@
                   class="bi bi-person-badge"></i> Feed</a>
       </ul>
   </div>
-
-  <span *ngIf="user.access_token" class="mr-3 grey"><i class="bi bi-person-circle"></i> {{user.username}}</span>
   <ul *ngIf="user.access_token" class="navbar-nav mr-auto">
-      <a class="nav-item nav-link" (click)="logout()"><i class="bi bi-box-arrow-left"></i> Logout</a>
+    <a *ngIf="user.access_token" class="nav-item nav-link" routerLink="profile"><i class="bi bi-person-circle"></i> {{user.username}}</a>
+  </ul>
+  <ul *ngIf="user.access_token" class="navbar-nav mr-auto">
+    <app-new-post></app-new-post>
+    <a class="nav-item nav-link" (click)="logout()"><i class="bi bi-box-arrow-left"></i> Logout</a>
   </ul>
 </nav>

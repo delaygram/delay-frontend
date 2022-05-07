@@ -6,5 +6,21 @@
       "^/api/authentication": ""
     },
     "changeOrigin": true
+  },
+  "/api/post/*": {
+    "target": "https://staging.delaygram.nl/post",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/post": ""
+    },
+    "changeOrigin": true
+  },
+  "/images/*": {
+    "target": "https://delay-post-storage-staging.s3.amazonaws.com/images",
+    "secure": false,
+    "pathRewrite": {
+      "^/images": ""
+    },
+    "changeOrigin": true
   }
 }
