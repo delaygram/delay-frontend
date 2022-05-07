@@ -1,0 +1,8 @@
+<p>posts works!</p>
+
+<div *ngFor="let post of posts" class="card mb-3">
+  <div class="card-body">
+    <p class="card-text">{{post.caption}}</p>
+    <img [src]="'https://staging.delaygram.nl/images/' + post.image_name" class="img-fluid" />
+  </div>
+</div>
