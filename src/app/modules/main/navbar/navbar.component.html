@@ -1,24 +1,34 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="navbar-header">
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-  </div>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="feed"><i class="bi bi-camera2"></i> Delaygram</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav mr-auto">
-          <span class="mr-3 grey"><i class="bi bi-camera2"></i> Delaygram</span>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-item nav-link" routerLink="feed" routerLinkActive="active-tab"><i
+            class="bi bi-person-badge"></i> Feed</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="user.access_token" class="nav-item nav-link" routerLink="profile" routerLinkActive="active-tab"><i class="bi bi-person-circle"></i> {{user.username}}</a>
+        </li>
+        <li class="nav-item">
+          <app-new-post></app-new-post>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link" (click)="logout()"><i class="bi bi-box-arrow-left"></i> Logout</a>
+        </li>
       </ul>
       <ul *ngIf="user.access_token" class="navbar-nav mr-auto">
-          <a class="nav-item nav-link" routerLink="feed" routerLinkActive="active-tab"><i
-                  class="bi bi-person-badge"></i> Feed</a>
+
       </ul>
   </div>
   <ul *ngIf="user.access_token" class="navbar-nav mr-auto">
-    <a *ngIf="user.access_token" class="nav-item nav-link" routerLink="profile"><i class="bi bi-person-circle"></i> {{user.username}}</a>
+
   </ul>
   <ul *ngIf="user.access_token" class="navbar-nav mr-auto">
-    <app-new-post></app-new-post>
-    <a class="nav-item nav-link" (click)="logout()"><i class="bi bi-box-arrow-left"></i> Logout</a>
+
+
   </ul>
 </nav>

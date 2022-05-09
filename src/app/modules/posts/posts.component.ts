@@ -1,4 +1,4 @@
-import { Post } from './../../shared/models/post';
+import { Post } from '../../shared/models/post';
 import { PostService } from 'src/app/core/services';
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
@@ -19,6 +19,7 @@ export class PostsComponent implements OnInit {
       response => {
         console.log(response);
         this.posts = response;
+        this.posts.reverse();
       }
     );
   }
