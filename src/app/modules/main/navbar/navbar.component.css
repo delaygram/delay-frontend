@@ -1,4 +1,4 @@
-/* .active-tab {
+.active-tab {
   color: white !important;
 }
 
@@ -12,10 +12,10 @@
 
 #dropdown-btn {
   list-style-type: none;
-} */
+}
 
 
-a,
+/* a,
 a:visited {
   color: #00376b;
   color: rgba(var(--fe0, 0, 55, 107), 1);
@@ -105,4 +105,4 @@ a:visited {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-}
+} */
